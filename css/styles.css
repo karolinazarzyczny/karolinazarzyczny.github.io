@@ -1,18 +1,13 @@
-/* Clean, centered card layout — beige background, scrollable card */
+/* Minimal, page-based layout: beige header band, white main content, thin footer border */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-
 :root{
-  --page-bg: #efe9e1;     /* warm beige */
-  --card-bg: #fffefb;     /* soft cream/white */
-  --text: #222;
-  --muted: #6f6b66;
-  --accent: #8a6f5a;
-  --radius: 12px;
-  --max-width: 900px;
-  --g: 1rem;
+  --page-bg:#efe9e1;
+  --white:#ffffff;
+  --text:#222222;
+  --muted:#6f6b66;
+  --accent:#8a6f5a;
+  --max-width:980px;
 }
-
-/* Reset & base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -24,112 +19,37 @@ body{
   -moz-osx-font-smoothing:grayscale;
   line-height:1.6;
 }
+.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 1rem}
+/* Top banner (full-width beige band) */
+.site-banner{background:var(--page-bg);border-bottom:1px solid rgba(0,0,0,0.04)}
+.banner-inner{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0}
+.site-title{margin:0;font-weight:600;font-size:1.05rem}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.main-nav a{text-decoration:none;color:var(--muted);font-weight:500;padding:0.25rem 0}
+.main-nav a[aria-current="page"]{color:var(--text);font-weight:700}
 
-/* Page wrapper that centers the card horizontally and gives top spacing */
-.wrap{
-  width:100%;
-  max-width:var(--max-width);
-  margin:3.5rem auto; /* gives breathing room top/bottom */
-  padding:0 1rem;
-}
+/* Main white content area */
+.main-content{background:var(--white);margin:2rem auto;padding:2rem;border-radius:8px;box-shadow:0 8px 28px rgba(18,18,18,0.04)}
+.hero-inner{display:flex;gap:1.25rem;align-items:flex-start}
+.hero-text{flex:1;min-width:0}
+.hero h2{margin:0 0 0.25rem 0;font-size:1.25rem;font-weight:600}
+.lead{margin:0;margin-top:0.35rem;color:var(--muted);max-width:60ch;font-size:0.98rem}
+.hero-photo img,.profile-photo{width:110px;height:110px;object-fit:cover;border-radius:50%;border:1px solid rgba(0,0,0,0.06)}
+.hero-ctas{margin-top:0.85rem;display:flex;gap:0.6rem}
+.cta{display:inline-block;background:transparent;color:var(--accent);border:1px solid rgba(138,111,90,0.12);padding:0.5rem 0.85rem;border-radius:8px;text-decoration:none;font-weight:600}
+.secondary{background:transparent;color:var(--muted);border:none;padding:0.45rem 0.7rem;border-radius:8px}
 
-/* The main card: cream background, subtle border, and scrollable if content exceeds viewport */
-.main-card{
-  background:var(--card-bg);
-  border-radius:var(--radius);
-  border:1px solid rgba(0,0,0,0.04);
-  box-shadow: 0 12px 40px rgba(20,20,20,0.04);
-  overflow:hidden;
-  max-height: calc(100vh - 5rem); /* allow the card to fit inside viewport with some top/bottom gap */
-  display:flex;
-  flex-direction:column;
-}
+.section{margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(0,0,0,0.03)}
+.features{display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap;padding:0;list-style:none}
+.features li{background:rgba(0,0,0,0.03);color:var(--muted);padding:0.38rem 0.65rem;border-radius:10px;font-size:0.92rem}
+.samples{display:flex;gap:0.9rem;flex-wrap:wrap;margin-top:0.85rem}
+.samples figure{width:220px;margin:0}
+.samples img{width:100%;height:140px;object-fit:cover;border-radius:8px;border:1px solid rgba(0,0,0,0.04)}
+.contact-form{max-width:520px;display:flex;flex-direction:column;gap:0.6rem}
+.contact-form input,.contact-form textarea{padding:0.6rem;border:1px solid rgba(0,0,0,0.06);border-radius:8px;background:#fff}
+.contact-form button{background:var(--accent);color:#fff;padding:0.6rem 0.8rem;border:0;border-radius:8px;cursor:pointer;font-weight:600}
 
-/* Make inner content scrollable while header/footer remain in flow */
-.card-scroll {
-  overflow:auto;
-  padding:1.5rem;
-}
+/* Footer with thin top border */
+.site-footer{border-top:1px solid rgba(0,0,0,0.06);padding:1rem 0;margin-top:1.5rem;background:transparent;color:var(--muted);text-align:center}
 
-/* Header */
-.site-header{
-  background:transparent;
-  border-bottom:1px solid rgba(0,0,0,0.04);
-}
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:var(--g);
-  padding:1rem 1.5rem;
-}
-.site-title{
-  margin:0;
-  font-weight:600;
-  font-size:1.05rem;
-}
-.main-nav ul{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:flex;
-  gap:0.5rem;
-}
-.main-nav a{
-  text-decoration:none;
-  color:var(--muted);
-  font-size:0.95rem;
-  padding:0.35rem 0.6rem;
-  border-radius:8px;
-}
-.main-nav a[aria-current="page"]{ color:var(--text); font-weight:600; }
-
-/* Hero / about header */
-.about-header, .hero-inner{
-  display:flex;
-  gap:1rem;
-  align-items:center;
-  justify-content:space-between;
-}
-.profile-photo{
-  width:110px;
-  height:110px;
-  object-fit:cover;
-  border-radius:50%;
-  border:1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 8px 20px rgba(20,20,20,0.04);
-}
-.hero h2, .about-header h2{ margin:0 0 0.25rem 0; font-size:1.2rem; font-weight:600; }
-.lead{ margin:0; margin-top:0.35rem; color:var(--muted); max-width:60ch; }
-
-/* CTAs */
-.hero-ctas{ margin-top:0.85rem; display:flex; gap:0.6rem; align-items:center; }
-.cta{ display:inline-block; background:transparent; color:var(--accent); border:1px solid rgba(138,111,90,0.12); padding:0.5rem 0.85rem; border-radius:8px; text-decoration:none; font-weight:600; }
-.cta:hover{ background:rgba(138,111,90,0.06); }
-.secondary{ background:transparent; color:var(--muted); border:none; padding:0.45rem 0.7rem; border-radius:8px; text-decoration:none; font-size:0.95rem; }
-
-/* Content sections */
-.section{ margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(0,0,0,0.03); }
-.features{ display:flex; gap:0.5rem; margin-top:1rem; flex-wrap:wrap; padding:0; list-style:none; }
-.features li{ background:rgba(0,0,0,0.03); color:var(--muted); padding:0.38rem 0.65rem; border-radius:10px; font-size:0.92rem; }
-
-/* Samples */
-.samples{ display:flex; gap:0.9rem; flex-wrap:wrap; margin-top:0.85rem; }
-.samples figure{ width:220px; margin:0; }
-.samples img{ width:100%; height:140px; object-fit:cover; border-radius:8px; border:1px solid rgba(0,0,0,0.04); }
-
-/* Contact form */
-.contact-form{ max-width:520px; display:flex; flex-direction:column; gap:0.6rem; }
-.contact-form label{ display:flex; flex-direction:column; font-size:0.95rem; color:var(--muted) }
-.contact-form input,.contact-form textarea{ padding:0.6rem; border:1px solid rgba(0,0,0,0.06); border-radius:8px; background:#fff }
-.contact-form button{ background:var(--accent); color:#fff; padding:0.6rem 0.8rem; border:0; border-radius:8px; cursor:pointer; font-weight:600 }
-
-/* Footer inside card */
-.site-footer{ padding:0.9rem 1.5rem; background:transparent; border-top:1px solid rgba(0,0,0,0.03); color:var(--muted); font-size:0.95rem; text-align:center }
-
-/* Responsive */
-@media (max-width:720px){
-  .wrap{ margin:1.5rem auto; padding:0 0.75rem; }
-  .profile-photo{ width:88px; height:88px; }
-  .samples figure{ width:48%; }
-}
+@media(max-width:720px){.hero-inner{flex-direction:column;align-items:flex-start}.hero-photo img,.profile-photo{width:88px;height:88px}.samples figure{width:48%}.main-content{padding:1.25rem}}
