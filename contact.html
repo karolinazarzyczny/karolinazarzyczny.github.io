@@ -8,60 +8,66 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <h1 class="site-title">Karolina Zarzyczny</h1>
-      <nav class="main-nav" aria-label="Primary">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="wrap">
+    <div class="main-card">
+      <header class="site-header">
+        <div class="header-inner">
+          <h1 class="site-title">Karolina Zarzyczny</h1>
+          <nav class="main-nav" aria-label="Primary">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-  <main class="wrap content">
-    <article>
-      <h2>Contact</h2>
+      <div class="card-scroll">
+        <main class="wrap content">
+          <article>
+            <h2>Contact</h2>
 
-      <section>
-        <h3>Get in touch</h3>
-        <p>Email: <a id="contact-email" href="mailto:you@example.com">you@example.com</a></p>
-        <p>Phone: +44 (0) 7000 000000 (replace with your number)</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/karolinazarzyczny" target="_blank" rel="noopener">linkedin.com/in/karolinazarzyczny</a></p>
-      </section>
+            <section>
+              <h3>Get in touch</h3>
+              <p>Email: <a id="contact-email" href="mailto:you@example.com">you@example.com</a></p>
+              <p>Phone: +44 (0) 7000 000000 (replace with your number)</p>
+              <p>LinkedIn: <a href="https://www.linkedin.com/in/karolinazarzyczny" target="_blank" rel="noopener">linkedin.com/in/karolinazarzyczny</a></p>
+            </section>
 
-      <section>
-        <h3>Request a quote</h3>
-        <p>Example contact form using Formspree. Sign up at <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a> and replace <code>YOUR_FORMSPREE_ENDPOINT</code> with your endpoint.</p>
+            <section>
+              <h3>Request a quote</h3>
+              <p>Example contact form using Formspree. Sign up at <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a> and replace <code>YOUR_FORMSPREE_ENDPOINT</code> with your endpoint.</p>
 
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="contact-form">
-          <label>
-            Your name
-            <input type="text" name="name" required>
-          </label>
-          <label>
-            Email
-            <input type="email" name="_replyto" required>
-          </label>
-          <label>
-            Message / brief
-            <textarea name="message" rows="6" required></textarea>
-          </label>
-          <button type="submit">Send</button>
-        </form>
+              <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="contact-form">
+                <label>
+                  Your name
+                  <input type="text" name="name" required>
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="_replyto" required>
+                </label>
+                <label>
+                  Message / brief
+                  <textarea name="message" rows="6" required></textarea>
+                </label>
+                <button type="submit">Send</button>
+              </form>
 
-        <p>Or simply email me using the address above.</p>
-      </section>
-    </article>
-  </main>
+              <p>Or simply email me using the address above.</p>
+            </section>
+          </article>
+        </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>© <!--YEAR--> Karolina Zarzyczny</p>
-    </div>
-  </footer>
+        <footer class="site-footer">
+          <div class="wrap">
+            <p>© <!--YEAR--> Karolina Zarzyczny</p>
+          </div>
+        </footer>
+      </div> <!-- .card-scroll -->
+    </div> <!-- .main-card -->
+  </div> <!-- .wrap -->
 </body>
 </html>
