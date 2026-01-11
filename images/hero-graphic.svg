@@ -1,42 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- hero-graphic.svg
-     Updated to include xlink namespace and both href + xlink:href as a fallback
-     Adds crossorigin="anonymous" to the image element to aid external image loading.
--->
-<svg xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-label="Hero graphic">
-  <title>Hero graphic</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="170" height="170" viewBox="0 0 170 170" role="img" aria-hidden="true">
   <defs>
-    <linearGradient id="g" x1="0" x2="1">
-      <stop offset="0%" stop-color="#0ea5e9" />
-      <stop offset="100%" stop-color="#7c3aed" />
+    <clipPath id="circle-clip">
+      <circle cx="85" cy="85" r="70" />
+    </clipPath>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#F7EDE3"/>
+      <stop offset="100%" stop-color="#E3D4C6"/>
     </linearGradient>
+    <filter id="f" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feBlend in="SourceGraphic" in2="b"/>
+    </filter>
   </defs>
 
-  <!-- background -->
-  <rect width="100%" height="100%" fill="url(#g)" />
-
-  <!-- external image: include both href and xlink:href for broader compatibility and crossorigin attribute -->
-  <!-- Replace the URL below with your actual external asset if needed -->
-  <image id="hero-image"
-         x="80"
-         y="60"
-         width="1040"
-         height="480"
-         preserveAspectRatio="xMidYMid slice"
-         href="https://cdn.example.com/assets/hero.png"
-         xlink:href="https://cdn.example.com/assets/hero.png"
-         crossorigin="anonymous"
-         role="img"
-         aria-label="Decorative hero image" />
-
-  <!-- subtle overlay to improve text contrast -->
-  <rect x="0" y="400" width="1200" height="200" fill="rgba(0,0,0,0.18)" />
-
-  <!-- heading -->
-  <g transform="translate(100,440)" fill="#fff" font-family="sans-serif">
-    <text x="0" y="0" font-size="40" font-weight="700">Karolina Zarzyczny</text>
-    <text x="0" y="42" font-size="18" opacity="0.95">Frontend engineer &amp; UI designer — crafting accessible interfaces</text>
+  <g transform="translate(0,0)">
+    <circle cx="85" cy="85" r="70" fill="url(#g)" filter="url(#f)" />
   </g>
+
+  <g clip-path="url(#circle-clip)">
+    <image href="images/Headshot.png" x="0" y="0" width="170" height="170" preserveAspectRatio="xMidYMid slice" />
+  </g>
+
+  <circle cx="140" cy="36" r="10" fill="#EFDCCF" opacity="0.6" />
 </svg>
