@@ -53,3 +53,29 @@ body{
   color: inherit;               /* use same colour as heading */
   line-height: 1.05;
 }
+
+/* Force hero headshot to stay small and circular */
+.hero-graphic img,
+.hero .hero-graphic img,
+.hero-text .hero-graphic img {
+  width: 110px !important;
+  height: 110px !important;
+  max-width: 110px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+}
+
+/* Slightly smaller on narrow screens */
+@media (max-width: 600px) {
+  .hero-inner{flex-direction:column;align-items:center;text-align:center}
+  .hero-graphic img{width:90px;height:90px}
+  .hero-text{width:100%}
+  .hero-graphic img,
+  .hero .hero-graphic img,
+  .hero-text .hero-graphic img {
+    width: 90px !important;
+    height: 90px !important;
+    max-width: 90px !important;
+  }
+}
