@@ -54,7 +54,7 @@ body{
   line-height: 1.05;
 }
 
-/* Force hero headshot to stay small and circular */
+/* Existing headshot constraints */
 .hero-graphic img,
 .hero .hero-graphic img,
 .hero-text .hero-graphic img {
@@ -66,16 +66,30 @@ body{
   border: 1px solid rgba(0,0,0,0.06) !important;
 }
 
+/* Stronger container-level constraint to prevent the image from expanding the layout */
+.hero-graphic {
+  flex: 0 0 110px; /* don't grow or shrink, fixed 110px slot */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-graphic > img {
+  width: 110px;
+  height: 110px;
+  max-width: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: block;
+}
+
 /* Slightly smaller on narrow screens */
 @media (max-width: 600px) {
   .hero-inner{flex-direction:column;align-items:center;text-align:center}
-  .hero-graphic img{width:90px;height:90px}
+  .hero-graphic{flex:0 0 90px}
+  .hero-graphic > img{width:90px;height:90px}
   .hero-text{width:100%}
-  .hero-graphic img,
-  .hero .hero-graphic img,
-  .hero-text .hero-graphic img {
-    width: 90px !important;
-    height: 90px !important;
-    max-width: 90px !important;
-  }
 }
+
+/* End of file */
